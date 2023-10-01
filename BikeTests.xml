@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="BikeApplicationTests" verbose="1">
+    <test name="Authentication Tests">
+        <classes>
+            <class name="tests.LogInCorrect"></class>
+            <class name="tests.LogInIncorrect"></class>
+            <class name="tests.RegisterCorrect"></class>
+            <class name="tests.RegisterIncorrect"></class>
+            <class name="tests.RemoveAccount"></class>
+        </classes>
+    </test>
+
+</suite>
