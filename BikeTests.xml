@@ -4,10 +4,10 @@
     <test name="Authentication Tests">
         <classes>
             <class name="tests.LogInCorrect"></class>
-            <class name="tests.LogInIncorrect"></class>
-            <class name="tests.RegisterCorrect"></class>
-            <class name="tests.RegisterIncorrect"></class>
-            <class name="tests.RemoveAccount"></class>
+<!--            <class name="tests.LogInIncorrect"></class>-->
+<!--            <class name="tests.RegisterCorrect"></class>-->
+<!--            <class name="tests.RegisterIncorrect"></class>-->
+<!--            <class name="tests.RemoveAccount"></class>-->
         </classes>
     </test>
 

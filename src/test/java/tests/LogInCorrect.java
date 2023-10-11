@@ -40,7 +40,9 @@ public class LogInCorrect {
     public void logInCorrect(){
         driver.get("http://localhost:8000");
         homePage.goToLogin();
-        loginPage.login("user2", "TestPassword");
+        String password = System.getProperty("password");
+        String username = System.getProperty("username");
+        loginPage.login(username , password);
         Assert.assertTrue(homePage.successMessageWithCorrectText("Logged In Sucessfully!!"), "Message is not visible");
         homePage.logout();
     }

@@ -46,7 +46,9 @@ public class RemoveAccount {
     @Test
     public void logInCorrect() throws InterruptedException{
         driver.get("http://localhost:8000/admin/login");
-        adminLoginPage.login("admin", "admin");
+        String password = System.getProperty("adminPassword");
+        String username =  System.getProperty("adminUsername");
+        adminLoginPage.login(username, password);
         adminHomePage.goToUserTab();
         adminUserPage.deleteUser("test");
         Assert.assertTrue(adminUserPage.successMessageWithCorrectText("Successfully deleted 1 user."));
