@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.BasePage;
@@ -11,6 +12,7 @@ import pages.BasePage;
 public class AdminLoginPage extends BasePage {
     public AdminLoginPage(WebDriver driver, WebDriverWait wait, Actions actions) {
         super(driver, wait, actions);
+        PageFactory.initElements(driver, this);
     }
 
 
@@ -29,11 +31,16 @@ public class AdminLoginPage extends BasePage {
     protected String errorMessageAlert = "//div[contains(@class, \"danger\")]";
 
 
-
     public void login(String username, String password){
+        fillCredentials(username,  password);
+        clickLoginBtn();
+    }
+    public void fillCredentials(String username, String password){
         wait.until(ExpectedConditions.visibilityOf(loginPlaceholder));
         usernameInput.sendKeys(username);
         passwordInput.sendKeys(password);
+    }
+    public void clickLoginBtn(){
         clickElement(loginBtn);
     }
 }

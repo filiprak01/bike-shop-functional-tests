@@ -4,8 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.devtools.v85.page.Page;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.BasePage;
@@ -15,6 +17,7 @@ import java.util.List;
 public class AdminUserPage extends BasePage {
     public AdminUserPage(WebDriver driver, WebDriverWait wait, Actions actions) {
         super(driver, wait, actions);
+        PageFactory.initElements(driver, this);
     }
 
     @FindBy(xpath = "//select")
@@ -39,7 +42,17 @@ public class AdminUserPage extends BasePage {
     protected String errorMessageAlert = "//div[contains(@class, \"danger\")]";
 
 
-    public boolean deleteUser(String name)throws InterruptedException{
+
+    public boolean doesUserExist(String name){
+        int index = 0;
+        for(index = 0; index < userLabels.size(); index++ ){
+            if(getTextFromNonInput(userLabels.get(index)).compareToIgnoreCase(name) == 0){
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean deleteUser(String name){
         int index = 0;
         boolean found = false;
         for(index = 0; index < userLabels.size(); index++ ){

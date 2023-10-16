@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.BasePage;
@@ -14,6 +15,7 @@ public class LoginPage extends BasePage {
 
     public LoginPage(WebDriver driver, WebDriverWait wait, Actions actions) {
         super(driver, wait, actions);
+        PageFactory.initElements(driver, this);
     }
 
     @FindBy(xpath = "//h1")
@@ -58,6 +60,15 @@ public class LoginPage extends BasePage {
         wait.until(ExpectedConditions.visibilityOf(loginPlaceholder));
         usernameInput.sendKeys(username);
         passwordInput.sendKeys(password);
+        clickElement(signInBtn);
+    }
+    public void enterCredentials(String username, String password){
+        wait.until(ExpectedConditions.visibilityOf(loginPlaceholder));
+        usernameInput.sendKeys(username);
+        passwordInput.sendKeys(password);
+    }
+
+    public void clickLoginBtn(){
         clickElement(signInBtn);
     }
 }

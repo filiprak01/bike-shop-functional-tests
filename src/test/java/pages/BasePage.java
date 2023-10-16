@@ -1,5 +1,6 @@
 package pages;
 
+import configs.BaseConfigs;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,7 +13,7 @@ import org.testng.annotations.AfterTest;
 
 import java.time.Duration;
 
-public class BasePage {
+public class BasePage extends BaseConfigs {
 
     //this class is to hold all the common functionalities shared within pages
 
@@ -32,7 +33,6 @@ public class BasePage {
         this.wait40s = new WebDriverWait(driver, Duration.ofSeconds(40));
         this.wait300s = new WebDriverWait(driver, Duration.ofSeconds(300));
         this.actions = actions;
-        PageFactory.initElements(driver, this);
     }
 
     public void clickElement(WebElement element){

@@ -48,7 +48,7 @@ public class RegisterIncorrect {
         Assert.assertTrue(registrationPage.errorMessageWithCorrectText("Username already exist! Please try some other username."));
         homePage.goToRegistration();
         //not matching passwords
-        registrationPage.register("test2", "123456789", "test123@test.com", "Password", "NewPassword");
+        registrationPage.register("test2", "123456789", "test@test.com", "Password", "NewPassword");
         Assert.assertTrue(registrationPage.errorMessageWithCorrectText("Passwords didn't match!!"));
         //existing email
         homePage.goToRegistration();

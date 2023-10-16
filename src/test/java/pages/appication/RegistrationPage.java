@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.BasePage;
@@ -13,6 +14,7 @@ import pages.BasePage;
 public class RegistrationPage extends BasePage {
     public RegistrationPage(WebDriver driver, WebDriverWait wait, Actions actions) {
         super(driver, wait, actions);
+        PageFactory.initElements(driver,this);
     }
 
     @FindBy(xpath = "//input[@id = \"username\"]")
@@ -46,6 +48,16 @@ public class RegistrationPage extends BasePage {
         emailInput.sendKeys(email);
         passwordInput.sendKeys(password);
         passwordInputConfirmation.sendKeys(passwordConfirmation);
+    }
+    public void enter_registration_credentials(String username, String email, String phoneNumber, String password, String passwordConfirmation){
+        wait.until(ExpectedConditions.visibilityOf(registrationPlaceholder));
+        usernameInput.sendKeys(username);
+        phoneNumberInput.sendKeys(phoneNumber);
+        emailInput.sendKeys(email);
+        passwordInput.sendKeys(password);
+        passwordInputConfirmation.sendKeys(passwordConfirmation);
+    }
+    public void click_registration_btn(){
         clickElement(registerButton);
     }
 

@@ -3,7 +3,7 @@
 <suite name="BikeApplicationTests" verbose="1">
     <test name="Authentication Tests">
         <classes>
-            <class name="tests.LogInCorrect"></class>
+            <class name="runners.TestRunner"></class>
 <!--            <class name="tests.LogInIncorrect"></class>-->
 <!--            <class name="tests.RegisterCorrect"></class>-->
 <!--            <class name="tests.RegisterIncorrect"></class>-->
